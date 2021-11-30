@@ -7,7 +7,7 @@ public class NumberUtils {
         return new Random().nextInt(high - low) + low;
     }
 
-    public static double covertCurrency() {
+    public static double convertCurrency() {
         return 0;
     }
 }
