@@ -11,7 +11,7 @@ import java.io.IOException;
 public class WebHttpClient {
     private HttpClient client = getDefaultClient();
 
-    public HttpResponse sendRequest(String s) throws IOException {
+    public HttpResponse sendGet(String s) throws IOException {
         return client.execute(new HttpGet(s));
     }
 
