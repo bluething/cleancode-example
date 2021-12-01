@@ -10,6 +10,12 @@ public class FailFast {
 
     private static int getTotalCompensation(int someBonusVariable) {
 
+        // we can defense with this
+        // but for me better leave it alone
+        if (someBonusVariable <= 0) {
+            throw new IllegalArgumentException("variable can't be < 0 ");
+        }
+
         int intermediateResult = getBaseSalary() * someBonusVariable;
 
         int secondIntermediateResult = convertToLocalCurrency(intermediateResult);
