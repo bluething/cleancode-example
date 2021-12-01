@@ -1,4 +1,4 @@
-package io.github.bluething.cleancode.example.ch3.before;
+package io.github.bluething.cleancode.example.ch3;
 
 import io.github.bluething.cleancode.example.ch3.Order;
 
