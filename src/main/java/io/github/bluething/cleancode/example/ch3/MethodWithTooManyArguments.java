@@ -7,7 +7,11 @@ import static java.time.LocalDateTime.now;
 
 public class MethodWithTooManyArguments {
     public static void main(String[] args) {
-        long millisSinceEpoch = nowPlusTime(0, 0, 4);
+        int months = 0;
+        int weeks = 0;
+        int days = 4;
+
+        long millisSinceEpoch = nowPlusTime(months, weeks, days);
         new Order().setExpirationDate(millisSinceEpoch);
 
         // after
