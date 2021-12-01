@@ -7,12 +7,16 @@ public class ComplexConditional {
 
         int hour = getHourOfDay();
 
-        if(hour > 6 && hour < 22){
+        if(isDay(hour)){
             System.out.println("Day time logic");
 
         } else {
             System.out.println("Night time logic");
         }
+    }
+
+    private static boolean isDay(int hour){
+        return hour > 6 && hour < 22;
     }
 
     private static int getHourOfDay() {
