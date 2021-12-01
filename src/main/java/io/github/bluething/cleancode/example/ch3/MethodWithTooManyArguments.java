@@ -1,20 +1,44 @@
 package io.github.bluething.cleancode.example.ch3;
 
-import io.github.bluething.cleancode.example.ch3.Order;
-
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+
+import static java.time.LocalDateTime.now;
 
 public class MethodWithTooManyArguments {
     public static void main(String[] args) {
         long millisSinceEpoch = nowPlusTime(0, 0, 4);
         new Order().setExpirationDate(millisSinceEpoch);
+
+        // after
+        new Order().setExpirationDate(nowPlusDays(4));
     }
 
     private static long nowPlusTime(int months, int weeks, int days) {
         return LocalDateTime.now().plusMonths(months)
                 .plusWeeks(weeks)
                 .plusDays(days)
+                .atZone(ZoneId.systemDefault())
+                .toInstant()
+                .toEpochMilli();
+    }
+
+    public static long nowPlusMonths(int months) {
+        return now().plusMonths(months)
+                .atZone(ZoneId.systemDefault())
+                .toInstant()
+                .toEpochMilli();
+    }
+
+    public static long nowPlusWeeks(int weeks) {
+        return now().plusWeeks(weeks)
+                .atZone(ZoneId.systemDefault())
+                .toInstant()
+                .toEpochMilli();
+    }
+
+    public static long nowPlusDays(int days) {
+        return now().plusDays(days)
                 .atZone(ZoneId.systemDefault())
                 .toInstant()
                 .toEpochMilli();
