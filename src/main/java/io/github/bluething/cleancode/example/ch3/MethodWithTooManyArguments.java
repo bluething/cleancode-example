@@ -28,22 +28,19 @@ public class MethodWithTooManyArguments {
     }
 
     public static long nowPlusMonths(int months) {
-        return now().plusMonths(months)
-                .atZone(ZoneId.systemDefault())
-                .toInstant()
-                .toEpochMilli();
+        return toEpochMilli(now().plusMonths(months));
     }
 
     public static long nowPlusWeeks(int weeks) {
-        return now().plusWeeks(weeks)
-                .atZone(ZoneId.systemDefault())
-                .toInstant()
-                .toEpochMilli();
+        return toEpochMilli(now().plusWeeks(weeks));
     }
 
     public static long nowPlusDays(int days) {
-        return now().plusDays(days)
-                .atZone(ZoneId.systemDefault())
+        return toEpochMilli(now().plusDays(days));
+    }
+
+    private static long toEpochMilli(LocalDateTime time) {
+        return time.atZone(ZoneId.systemDefault())
                 .toInstant()
                 .toEpochMilli();
     }
